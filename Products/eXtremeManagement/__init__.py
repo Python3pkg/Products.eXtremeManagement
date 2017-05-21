@@ -27,8 +27,8 @@ except ImportError:
 
 def initialize(context):
     # imports packages and types for registration
-    import content
-    import interfaces
+    from . import content
+    from . import interfaces
 
     # Initialize portal content
     all_content_types, all_constructors, all_ftis = process_types(

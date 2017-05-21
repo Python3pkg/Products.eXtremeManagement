@@ -61,7 +61,7 @@ class GanttView(BrowserView):
     @Lazy
     def _search(self):
         portal_state = component.getMultiAdapter((self.context, self.request),
-                                                 name=u'plone_portal_state')
+                                                 name='plone_portal_state')
         portal = portal_state.portal()
         return portal.portal_catalog
 

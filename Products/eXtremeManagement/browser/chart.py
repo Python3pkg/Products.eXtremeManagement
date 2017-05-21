@@ -125,8 +125,8 @@ class ChartView(BrowserView):
         return cumul
 
     def velocity_table(self):
-        return zip(self.labels(), self.estimate_stories_data(),
-                   self.estimate_tasks_data(), self.work_data())
+        return list(zip(self.labels(), self.estimate_stories_data(),
+                   self.estimate_tasks_data(), self.work_data()))
 
     def velocity_chart(self):
 
@@ -151,7 +151,7 @@ class ChartView(BrowserView):
                           _('task estimates'), _('worked')])
         chart.set_legend_position('b')
         chart.set_axis_labels(Axis.LEFT, ['', '', _('days')])
-        chart.set_axis_labels(Axis.BOTTOM, range(1, x_max + 1))
+        chart.set_axis_labels(Axis.BOTTOM, list(range(1, x_max + 1)))
         chart.set_axis_range(Axis.LEFT, 0, y_max + 1)
 
         return chart.get_url(data_class=ExtendedData)

@@ -144,7 +144,7 @@ class PoiView(XMBaseView):
         for issue in self.get_open_issues_in_project():
             for s in issue.Subject:
                 tags[s] = 1
-        keys = tags.keys()
+        keys = list(tags.keys())
         keys.sort(lambda x, y: cmp(x.lower(), y.lower()))
         return keys
 

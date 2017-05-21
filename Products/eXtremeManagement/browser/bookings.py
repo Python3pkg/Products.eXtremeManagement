@@ -23,9 +23,9 @@ class BookingsDetailedView(XMBaseView):
         self.year = year or self.request.form.get('year', DateTime().year())
         self.month = month or self.request.form.get('month',
                                                     DateTime().month())
-        if isinstance(self.year, basestring):
+        if isinstance(self.year, str):
             self.year = int(self.year)
-        if isinstance(self.month, basestring):
+        if isinstance(self.month, str):
             self.month = int(self.month)
         self.previous = self.request.form.get('previous')
         self.next = self.request.form.get('next')
@@ -37,7 +37,7 @@ class BookingsDetailedView(XMBaseView):
 
         if self.previous:
             self.year, self.month = getPrevYearMonth(self.year, self.month)
-        elif self.next:
+        elif self.__next__:
             self.year, self.month = getNextYearMonth(self.year, self.month)
 
         self.startDate = DateTime(self.year, self.month, 1)

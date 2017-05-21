@@ -12,18 +12,18 @@ from Products.eXtremeManagement import XMMessageFactory as _
 
 class XMControlPanel(ControlPanelForm):
     form_fields = FormFieldsets()
-    label = _(u"eXtremeManagement maintenance")
+    label = _("eXtremeManagement maintenance")
     description = _(
-        u"Perform various maintenance tasks. "
+        "Perform various maintenance tasks. "
         "If you know the totals are wrong, you can recalculate them here. "
         "This should normally not be needed, so do not touch this unless "
         "you know what you are doing.  Then again, it does not hurt, except "
         "that it takes a long time.")
 
     @form.action(
-        _(u'label_recalculate_actual_hours',
-          default=u'Recalculate actual hours'),
-        name=u'recalculate_actual_hours',
+        _('label_recalculate_actual_hours',
+          default='Recalculate actual hours'),
+        name='recalculate_actual_hours',
         validator=null_validator)
     def recalculate_actual(self, action, data):
         """Recalculate the actual hours.
@@ -41,9 +41,9 @@ class XMControlPanel(ControlPanelForm):
                 anno.recalc()
 
     @form.action(
-        _(u'label_recalculate_estimated_time',
-          default=u'Recalculate estimated time'),
-        name=u'recalculate_estimated_time',
+        _('label_recalculate_estimated_time',
+          default='Recalculate estimated time'),
+        name='recalculate_estimated_time',
         validator=null_validator)
     def recalculate_estimate(self, action, data):
         """Recalculate the estimates.

@@ -37,7 +37,7 @@ class Assignment(base.Assignment):
         """This property is used to give the title of the portlet in the
         "manage portlets" screen.
         """
-        return _(u'Project links')
+        return _('Project links')
 
 
 class Renderer(base.Renderer):
@@ -53,7 +53,7 @@ class Renderer(base.Renderer):
     def __init__(self, *args):
         base.Renderer.__init__(self, *args)
         portal_state = getMultiAdapter((self.context, self.request),
-                                       name=u'plone_portal_state')
+                                       name='plone_portal_state')
         self.site_url = portal_state.portal_url()
         self.portal = portal_state.portal()
         self.project = self._get_project()
@@ -95,13 +95,13 @@ class Renderer(base.Renderer):
             attachments = self.attachments_url()
             offers = self.offers_url()
             # chart = self.chart_url()
-            results.append(dict(url=self.project_url, title=_(u'Project')))
+            results.append(dict(url=self.project_url, title=_('Project')))
             if tracker:
-                results.append(dict(url=tracker, title=_(u'Issues')))
+                results.append(dict(url=tracker, title=_('Issues')))
             if attachments:
-                results.append(dict(url=attachments, title=_(u'Attachments')))
+                results.append(dict(url=attachments, title=_('Attachments')))
             if offers:
-                results.append(dict(url=offers, title=_(u'Offer')))
+                results.append(dict(url=offers, title=_('Offer')))
             # if chart:
             #    results.append(dict(url=chart, title=_(u'Overview Chart')))
         for res in results:
@@ -152,7 +152,7 @@ class Renderer(base.Renderer):
         """ Return the url to the chart overview, if it has data"""
         try:
             chart = getMultiAdapter((self.project, self.request),
-                                    name=u'chart')
+                                    name='chart')
         except ComponentLookupError:
             return None
 

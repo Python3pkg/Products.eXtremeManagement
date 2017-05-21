@@ -312,7 +312,7 @@ class Create(BrowserView):
         plone_utils = getToolByName(self.context, 'plone_utils')
         new_id = plone_utils.normalizeString(title)
         context.invokeFactory(type_name="Iteration", id=new_id, title=title)
-        plone_utils.addPortalMessage(_(u'Iteration added.'))
+        plone_utils.addPortalMessage(_('Iteration added.'))
         self.request.response.redirect(
             context.absolute_url() + '/@@planned-iterations')
 
@@ -325,7 +325,7 @@ class Add(PloneKSSView):
         plone_commands = self.getCommandSet('plone')
         title = self.request.form.get('title')
         if not title:
-            plone_commands.issuePortalMessage(_(u'Title is required'),
+            plone_commands.issuePortalMessage(_('Title is required'),
                                               msgtype='error')
             return None
         plone_utils = getToolByName(self.context, 'plone_utils')
@@ -337,5 +337,5 @@ class Add(PloneKSSView):
             '#iterationlist', name='xm.iteration_list')
         zopecommands.refreshProvider(
             '#add-iteration', name='xm.iteration_form')
-        plone_commands.issuePortalMessage(_(u'Iteration added.'),
+        plone_commands.issuePortalMessage(_('Iteration added.'),
                                           msgtype='info')

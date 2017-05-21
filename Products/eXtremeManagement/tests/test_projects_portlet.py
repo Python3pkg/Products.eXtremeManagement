@@ -30,14 +30,14 @@ class TestPortlet(eXtremeManagementTestCase):
         portlet = getUtility(IPortletType, name='eXtremeManagement.project')
         mapping = self.portal.restrictedTraverse(
             '++contextportlets++plone.leftcolumn')
-        for m in mapping.keys():
+        for m in list(mapping.keys()):
             del mapping[m]
         addview = mapping.restrictedTraverse('+/' + portlet.addview)
 
         addview()
 
         self.assertEquals(len(mapping), 1)
-        self.failUnless(isinstance(mapping.values()[0], project.Assignment))
+        self.failUnless(isinstance(list(mapping.values())[0], project.Assignment))
 
     def test_obtain_renderer(self):
         context = self.folder

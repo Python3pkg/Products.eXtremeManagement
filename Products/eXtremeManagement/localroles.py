@@ -11,7 +11,7 @@ from Products.CMFPlone import PloneMessageFactory as PMF
 class EmployeeRole(object):
     implements(ISharingPageRole)
 
-    title = PMF(u"title_employee_role",
+    title = PMF("title_employee_role",
                 default="Works on project")
     required_permission = 'eXtremeManagement: Add Project'
 
@@ -19,7 +19,7 @@ class EmployeeRole(object):
 class CustomerRole(object):
     implements(ISharingPageRole)
 
-    title = PMF(u"title_customer_role",
+    title = PMF("title_customer_role",
                 default="Customer can track project")
     required_permission = 'eXtremeManagement: Add Project'
 
@@ -27,6 +27,6 @@ class CustomerRole(object):
 class ProjectmanagerRole(object):
     implements(ISharingPageRole)
 
-    title = PMF(u"title_projectmanager_role",
+    title = PMF("title_projectmanager_role",
                 default="Can manage project")
     required_permission = 'Manage portal'

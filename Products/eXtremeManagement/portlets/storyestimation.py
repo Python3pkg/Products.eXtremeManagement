@@ -31,7 +31,7 @@ class Assignment(base.Assignment):
         """This property is used to give the title of the portlet in the
         "manage portlets" screen.
         """
-        return _(u'box_stories', default=u'Pending Stories')
+        return _('box_stories', default='Pending Stories')
 
 
 class Renderer(base.Renderer):

@@ -34,7 +34,7 @@ class Assignment(base.Assignment):
         """This property is used to give the title of the portlet in the
         "manage portlets" screen.
         """
-        return _(u'Create tasks from issues')
+        return _('Create tasks from issues')
 
 
 class Renderer(base.Renderer):
@@ -50,7 +50,7 @@ class Renderer(base.Renderer):
     def __init__(self, *args):
         base.Renderer.__init__(self, *args)
         self.poi_view = getMultiAdapter((self.context, self.request),
-                                        name=u'xm-poi')
+                                        name='xm-poi')
 
     @property
     def available(self):

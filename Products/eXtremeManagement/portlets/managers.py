@@ -34,7 +34,7 @@ class Assignment(base.Assignment):
         """This property is used to give the title of the portlet in the
         "manage portlets" screen.
         """
-        return _(u'Project Management')
+        return _('Project Management')
 
 
 class Renderer(base.Renderer):
@@ -50,9 +50,9 @@ class Renderer(base.Renderer):
     def __init__(self, *args):
         base.Renderer.__init__(self, *args)
         self.tools = getMultiAdapter((self.context, self.request),
-                                     name=u'plone_tools')
+                                     name='plone_tools')
         portal_state = getMultiAdapter((self.context, self.request),
-                                       name=u'plone_portal_state')
+                                       name='plone_portal_state')
         self.anonymous = portal_state.anonymous()
         self.site_url = portal_state.portal_url()
         self.portal = portal_state.portal()

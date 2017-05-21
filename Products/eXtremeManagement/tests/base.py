@@ -225,7 +225,7 @@ def reset_request(obj):
     """
     REQUEST = getattr(obj, 'REQUEST', None)
     if REQUEST is not None:
-        keys = [key for key in REQUEST.keys()
+        keys = [key for key in list(REQUEST.keys())
                 if key.startswith('_daterangeindex_')]
         for key in keys:
             REQUEST.set(key, None)

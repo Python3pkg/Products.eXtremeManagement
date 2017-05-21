@@ -1,4 +1,4 @@
-from urlparse import urlsplit
+from urllib.parse import urlsplit
 
 from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
@@ -52,10 +52,10 @@ class ViewletReloader(object):
             ksscore = self.view.getCommandSet('core')
             selector1 = ksscore.getHtmlIdSelector('task-form-expanded')
             ksscore.replaceHTML(
-                selector1, u'<!-- Removed expanded task form -->')
+                selector1, '<!-- Removed expanded task form -->')
             selector2 = ksscore.getHtmlIdSelector('task-form-button')
             ksscore.replaceHTML(
-                selector2, u'<!-- Removed task form button -->')
+                selector2, '<!-- Removed task form button -->')
             # Refresh unexpanded task form.
             zope.refreshProvider('#task-form', 'xm.task_form')
             # Refresh the details box provider

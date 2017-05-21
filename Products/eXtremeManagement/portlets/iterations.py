@@ -37,7 +37,7 @@ class Assignment(base.Assignment):
         """This property is used to give the title of the portlet in the
         "manage portlets" screen.
         """
-        return _(u'Iterations')
+        return _('Iterations')
 
 
 class Renderer(base.Renderer):
@@ -53,9 +53,9 @@ class Renderer(base.Renderer):
     def __init__(self, *args):
         base.Renderer.__init__(self, *args)
         portal_state = getMultiAdapter((self.context, self.request),
-                                       name=u'plone_portal_state')
+                                       name='plone_portal_state')
         tools = getMultiAdapter((self.context, self.request),
-                                name=u'plone_tools')
+                                name='plone_tools')
         self.site_url = portal_state.portal_url()
         self.portal = portal_state.portal()
         self.project = self._get_project()
@@ -117,11 +117,11 @@ class Renderer(base.Renderer):
                 title = brain.Title
                 item = {'title': title, 'url': url}
                 if wf_state != 'in-progress':
-                    if not wf_state in states.keys():
+                    if not wf_state in list(states.keys()):
                         states[wf_state] = [item]
                     else:
                         states[wf_state].append(item)
-        for state in states.keys():
+        for state in list(states.keys()):
             iterations = states[state]
             results.append({'title': state,
                             'iterations': iterations})

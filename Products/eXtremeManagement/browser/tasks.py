@@ -394,7 +394,7 @@ class Add(PloneKSSView):
         plone_commands = self.getCommandSet('plone')
         title = self.request.form.get('title')
         if not title:
-            plone_commands.issuePortalMessage(_(u'Title is required'),
+            plone_commands.issuePortalMessage(_('Title is required'),
                                               msgtype='error')
             return None
         assignees = self.request.form.get('assignees', [])
@@ -420,7 +420,7 @@ class Add(PloneKSSView):
                                      'xm.story.detailsbox')
 
         # Set a portal message to inform the user of the change.
-        plone_commands.issuePortalMessage(_(u'Task added'),
+        plone_commands.issuePortalMessage(_('Task added'),
                                           msgtype='info')
 
     def tasklist(self):

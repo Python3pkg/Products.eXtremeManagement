@@ -114,7 +114,7 @@ def zap_old_xm_portlets(site, logger):
               )
     column = getUtility(IPortletManager, name="plone.leftcolumn", context=site)
     manager = getMultiAdapter((site, column), IPortletAssignmentMapping)
-    old_style = [key for key in manager.keys() if
+    old_style = [key for key in list(manager.keys()) if
                  isinstance(manager[key], plone_portlets.classic.Assignment)]
     to_delete = [key for key in old_style
                  if manager[key].template in to_zap]

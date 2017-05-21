@@ -151,7 +151,7 @@ def send(portal, message, subject, recipients=[]):
         logger.info("Begin sending email to %r " % formatted_recipients)
         logger.info("Subject: %s " % subject)
         mailhost.send(message=msg)
-    except gaierror, exc:
+    except gaierror as exc:
         logger.error("Failed sending email to %r" % formatted_recipients)
         logger.error("Reason: %s: %r" % (exc.__class__.__name__, str(exc)))
     else:
@@ -177,7 +177,7 @@ def email_task_assignees(object, event, *args, **kwargs):
     member_id = membership.getAuthenticatedMember().id
     creator_address = email_address_for_member(creator)
     title = object.Title()
-    subject = u'New Task assigned: %s' % safe_unicode(title)
+    subject = 'New Task assigned: %s' % safe_unicode(title)
     obj_url = object.absolute_url()
     description = object.Description()
     if description:
@@ -191,7 +191,7 @@ def email_task_assignees(object, event, *args, **kwargs):
     # We may have a customer as assignee of a PoiTask.  The ticket is
     # assigned to her, but as she is an employee, she should not get
     # an email.
-    valid_assignees = object._get_assignees().keys()
+    valid_assignees = list(object._get_assignees().keys())
     recipients = [email_address_for_member(membership.getMemberById(a))
                   for a in object.getAssignees() if a != member_id
                   and a in valid_assignees]
@@ -208,7 +208,7 @@ def email_task_assignees(object, event, *args, **kwargs):
     send(portal, message, subject, recipients)
 
 
-email_task_assignees_template = u"""
+email_task_assignees_template = """
 The url is:
 %(task_url)s
 

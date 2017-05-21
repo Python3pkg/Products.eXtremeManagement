@@ -34,7 +34,7 @@ class Assignment(base.Assignment):
 
     @property
     def title(self):
-        return u"Personal administration"
+        return "Personal administration"
 
 
 class Renderer(base.Renderer):
@@ -45,9 +45,9 @@ class Renderer(base.Renderer):
     def __init__(self, context, request, view, manager, data):
         base.Renderer.__init__(self, context, request, view, manager, data)
         tools = getMultiAdapter((context, request),
-                                name=u'plone_tools')
+                                name='plone_tools')
         portal_state = getMultiAdapter((context, request),
-                                       name=u'plone_portal_state')
+                                       name='plone_portal_state')
         self.anonymous = portal_state.anonymous()
         self.mtool = tools.membership()
         self.portal_url = portal_state.portal_url()

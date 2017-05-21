@@ -119,7 +119,7 @@ class MoveIteration(PloneKSSView):
     @kssaction
     def move_iteration(self, uid, daystart, dayoffset):
         """Find an iteration by uid and move it to a new start day"""
-        print 'move_iteration', uid, date.fromtimestamp(int(daystart)), dayoffset
+        print('move_iteration', uid, date.fromtimestamp(int(daystart)), dayoffset)
         # Sanitise the daystart
         view = self.context.restrictedTraverse('@@scheduling')
         first_day = view.startingdate(stamp=int(daystart))
@@ -312,7 +312,7 @@ class ProjectView(XMBaseView):
         results = []
         if offer_brains:
             plone_view = getMultiAdapter((context, self.request),
-                                         name=u'plone')
+                                         name='plone')
             icon = plone_view.getIcon(offer_brains[0].getObject())
             for offer in offer_brains:
                 results.append(dict(brain=offer,

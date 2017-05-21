@@ -6,10 +6,10 @@ from Products.CMFDefault.exceptions import DiscussionNotAllowed
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.interface import implements
 
-from interfaces import ISimpleTaskList
-from interfaces import ISimpleStoryList
-from interfaces import IStoryDetails
-from interfaces import IStoryDetailsBox
+from .interfaces import ISimpleTaskList
+from .interfaces import ISimpleStoryList
+from .interfaces import IStoryDetails
+from .interfaces import IStoryDetailsBox
 
 logger = logging.getLogger('story_viewlet')
 

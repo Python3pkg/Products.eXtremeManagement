@@ -91,8 +91,8 @@ class IterationListBaseView(XMBaseView):
             review_state=['open', 'to-do']))
         if open_stories or open_tasks:
             status_warning = _(
-                u"msg_status_warning",
-                default=u"${open_stories} open stories and "
+                "msg_status_warning",
+                default="${open_stories} open stories and "
                 "${open_tasks} open tasks",
                 mapping=dict(open_stories=open_stories, open_tasks=open_tasks))
         else:

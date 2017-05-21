@@ -1,14 +1,14 @@
 # Classes
-import Project
-import Iteration
-import Offer
-import Story
-import Task
-import Booking
-import PoiTask
+from . import Project
+from . import Iteration
+from . import Offer
+from . import Story
+from . import Task
+from . import Booking
+from . import PoiTask
 
 # BBB can be remove in release 2.1
-import ProjectMember
-import Customer
-import CustomerFolder
-import ProjectFolder
+from . import ProjectMember
+from . import Customer
+from . import CustomerFolder
+from . import ProjectFolder

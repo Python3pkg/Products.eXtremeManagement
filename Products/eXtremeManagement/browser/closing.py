@@ -32,14 +32,14 @@ class IterationClosingView(BrowserView):
     def project(self):
         state = component.getMultiAdapter((self.context, self.request),
                                           interface.Interface,
-                                          u'xm_global_state')
+                                          'xm_global_state')
         return state.project
 
     @property
     def portal(self):
         pview = component.getMultiAdapter((self.context, self.request),
                                           interface.Interface,
-                                          u'plone_portal_state')
+                                          'plone_portal_state')
         return pview.portal()
 
     @property
@@ -105,7 +105,7 @@ class IterationClosingView(BrowserView):
                 ids = all[parent] = set()
             ids.add(x.getId)
 
-        for parentpath, ids in all.items():
+        for parentpath, ids in list(all.items()):
             logger.info('Deleting from %r: %r' % (parentpath, ids))
             parent = self.portal.restrictedTraverse(parentpath)
             parent.manage_delObjects(list(ids))

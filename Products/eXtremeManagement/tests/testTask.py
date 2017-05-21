@@ -17,7 +17,7 @@ class testTask(eXtremeManagementTestCase):
         self.task = self.story.task
 
     def test__get_assignees(self):
-        self.assertEqual(self.task._get_assignees().items(),
+        self.assertEqual(list(self.task._get_assignees().items()),
                          ((default_user, default_user),
                           ('developer', 'developer'),
                           ('employee', 'employee')))

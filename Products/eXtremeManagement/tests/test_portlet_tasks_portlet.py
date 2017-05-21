@@ -35,7 +35,7 @@ class TestPortlet(PortletsTestCase, eXtremeManagementTestCase):
 
         mapping = self.portal.restrictedTraverse(
             '++contextportlets++plone.leftcolumn')
-        for m in mapping.keys():
+        for m in list(mapping.keys()):
             del mapping[m]
         addview = mapping.restrictedTraverse('+/' + portlet.addview)
 
@@ -46,7 +46,7 @@ class TestPortlet(PortletsTestCase, eXtremeManagementTestCase):
         addview()
 
         self.assertEquals(len(mapping), 1)
-        self.failUnless(isinstance(mapping.values()[0],
+        self.failUnless(isinstance(list(mapping.values())[0],
                                    portlet_tasks.Assignment))
 
     def testInvokeEditView(self):
@@ -56,7 +56,7 @@ class TestPortlet(PortletsTestCase, eXtremeManagementTestCase):
         mapping['foo'] = portlet_tasks.Assignment()
         editview = queryMultiAdapter(
             (mapping['foo'], request), name='edit', default=None)
-        self.failUnless(isinstance(mapping.values()[0],
+        self.failUnless(isinstance(list(mapping.values())[0],
                                    portlet_tasks.Assignment))
 
     def testRenderer(self):

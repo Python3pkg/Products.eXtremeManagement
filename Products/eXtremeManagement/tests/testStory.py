@@ -4,7 +4,7 @@ import transaction
 
 from Products.eXtremeManagement.tests.base import eXtremeManagementTestCase
 from Products.eXtremeManagement.tests.base import reset_request
-from utils import createBooking
+from .utils import createBooking
 
 
 class testStory(eXtremeManagementTestCase):

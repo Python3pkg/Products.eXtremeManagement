@@ -273,11 +273,11 @@ def nice_axis_step(number):
        20000000
     """
     nice_steps = nice_step_generator()
-    step = nice_steps.next()
+    step = next(nice_steps)
     while(1):
         if number / step < 10:
             return step
-        step = nice_steps.next()
+        step = next(nice_steps)
 
 
 def nice_step_generator():

@@ -241,7 +241,7 @@ class MoveStory(PloneKSSView):
                                                      target_id,
                                                      story_id)
         if source == None:  # The rest is also None.
-            plone.issuePortalMessage(_(u'Drag/drop uids incorrect'),
+            plone.issuePortalMessage(_('Drag/drop uids incorrect'),
                                      msgtype='error')
             return
 
@@ -255,20 +255,20 @@ class MoveStory(PloneKSSView):
             except ResourceLockedError:
                 logger.info('Resource locked')
                 IStatusMessage(self.request).addStatusMessage(
-                    _(u"Move failed: story locked. "
-                      u"Unlock the story to move it."),
+                    _("Move failed: story locked. "
+                      "Unlock the story to move it."),
                     type='error')
                 cns.redirectRequest(story.absolute_url())
                 return
 
-            msg = _(u'label_moved_succesfully',
-                    default=u"Moved story '${story}' to iteration '${target}'.",
+            msg = _('label_moved_succesfully',
+                    default="Moved story '${story}' to iteration '${target}'.",
                     mapping={'story': story.Title(),
                              'target': target.Title()})
             if target_id == 'unplanned_stories':
                 msg = _(
-                    u'label_moved_to_unplanned_succesfully',
-                    default=u"Moved story '${story}' to the unplanned list.",
+                    'label_moved_to_unplanned_succesfully',
+                    default="Moved story '${story}' to the unplanned list.",
                     mapping={'story': story.Title()})
 
             plone.issuePortalMessage(msg, msgtype='info')
@@ -292,9 +292,9 @@ class MoveStory(PloneKSSView):
             # We haven't moved the object to another iteration, so that didn't
             # give us a status message. To provide feedback that something
             # happened we'll say that the object's position has been modified.
-            msg = _(u'label_order_updated_succesfully',
-                    default=(u"The position of story '${story}' in the "
-                             u"iteration has been changed."),
+            msg = _('label_order_updated_succesfully',
+                    default=("The position of story '${story}' in the "
+                             "iteration has been changed."),
                     mapping={'story': story.Title()})
             plone.issuePortalMessage(msg, msgtype='info')
 

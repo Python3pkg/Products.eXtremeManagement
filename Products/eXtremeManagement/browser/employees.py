@@ -11,7 +11,7 @@ from zope.component import getMultiAdapter
 from Products.eXtremeManagement.utils import getEndOfMonth
 
 from Products.CMFPlone import PloneMessageFactory as PMF
-from interfaces import IEmployeesView
+from .interfaces import IEmployeesView
 
 
 def booking_date(brain):
@@ -29,9 +29,9 @@ class EmployeesView(BrowserView):
     def __init__(self, context, request, year=None):
         self.context = aq_inner(context)
         self.tools = getMultiAdapter((self.context, request),
-                                     name=u'plone_tools')
+                                     name='plone_tools')
         portal_state = getMultiAdapter((self.context, request),
-                                       name=u'plone_portal_state')
+                                       name='plone_portal_state')
         self.context = context
         self.request = request
         self.site_url = portal_state.portal_url()
